@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="css/form.css" />
+  </head>
+  <body>
+    <div class="form">
+      <h1 class="heading">login</h1>
+      <input type="text" name="username" placeholder="User Name" id="username" required />
+      <span id="usererror"> </span>
+      <br />
+      <input type="password" placeholder="Password" autocomplete="off" class="password" id="password" required />
+      <span id="passworderror"> </span>
+
+      <button id="submit-btn" onclick="validateForm()">log in</button>
+    </div>
+
+    <script src="js/form.js"></script>
+  </body>
+</html>

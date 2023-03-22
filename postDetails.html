@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Page</title>
+    <link rel="stylesheet" href="css/form.css" />
+  </head>
+  <body>
+    <div id="post-details"></div>
+
+    <script>
+      function getPostDetail() {
+        const postsContainer = document.querySelector("#post-details");
+
+        const postId = new URLSearchParams(window.location.search).get("postId");
+        if (postsContainer) {
+          fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+            .then((res) => res.json())
+            .then((post) => {
+              const divElement = document.createElement("div");
+              divElement.innerHTML = ` 
+      <h2  id="title"> ${post.title} </h2>
+            <p id="body" >${post.body} </p>
+             <button onclick="Editpost()">Edit</button>
+              `;
+              postsContainer.appendChild(divElement);
+              console.log(postsContainer);
+            });
+        }
+      }
+      getPostDetail();
+      function Editpost() {
+        const body = document.getElementById("body").textContent;
+
+        const newBody = prompt("Enter new body", body);
+        const postId = new URLSearchParams(window.location.search).get("postId");
+
+        const data = {
+          body: newBody,
+        };
+
+        fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
+          method: "PATCH",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("body").textContent = data.body;
+          });
+      }
+    </script>
+  </body>
+</html>
