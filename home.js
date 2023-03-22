@@ -1,5 +1,5 @@
 fetch("https://jsonplaceholder.typicode.com/posts")
-  // show the total number of post
+ 
   .then((res) => {
     console.log(res);
     return res.json();
@@ -14,7 +14,7 @@ fetch("https://jsonplaceholder.typicode.com/posts")
   .catch((error) => console.log(error));
 
 fetch("https://jsonplaceholder.typicode.com/comments")
-  // show the total number of comments
+  
   .then((res) => {
     return res.json();
   })
@@ -28,7 +28,7 @@ fetch("https://jsonplaceholder.typicode.com/comments")
   .catch((error) => console.log(error));
 
 fetch("https://jsonplaceholder.typicode.com/todos")
-  // show the total number of todos
+  
   .then((res) => {
     return res.json();
   })
@@ -41,7 +41,7 @@ fetch("https://jsonplaceholder.typicode.com/todos")
   .catch((error) => console.log(error));
 
 fetch("https://jsonplaceholder.typicode.com/posts")
-  // show the total number of post.title
+ 
   .then((res) => {
     return res.json();
   })
@@ -63,7 +63,7 @@ fetch("https://jsonplaceholder.typicode.com/posts")
 
 function deletepost(id) {
   const apiUrl = "https://jsonplaceholder.typicode.com/posts/" + id;
-  // function for delete  post
+ 
 
   fetch(apiUrl, {
     method: "DELETE",
