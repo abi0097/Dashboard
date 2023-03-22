@@ -10,11 +10,7 @@ var form = document.querySelector(".form");
 form.onsubmit = () => {
   return false;
 };
-// login.onclick = () => {
-//   console.log("submited", userName);
-//   if (userName === "" || password === "") {
-//     alert("Please fill in both the username and password fields");
-//   }
+
 function validateForm() {
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
